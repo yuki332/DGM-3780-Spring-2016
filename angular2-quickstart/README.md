@@ -11,3 +11,8 @@
 #### 3. What you learned
 #### 4. What you found difficult
 #### 5. Why are .gitignore files important
+
+##### memo
+* uses the double curly braces of interpolation
+* use `ngModel` for two-way data binding
+* Multi-line strings use ` `` `
