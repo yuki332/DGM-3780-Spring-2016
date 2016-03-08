@@ -1,4 +1,4 @@
- # 1. Name of project
+# 1. Name of project
   TOUR OF HEROES
 #### 2. Build instructions
   1. Follow Angular2 [Quick Start](https://angular.io/docs/ts/latest/quickstart.html) instructions and set up the development environment
