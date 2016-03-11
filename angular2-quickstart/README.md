@@ -8,7 +8,8 @@
   5. hide selected template by using `ngIf`
   6. style template with css.
   7. create another reusable components
-  8. 
+  8. create mock service and data
+  9.
 
 #### 3. What you learned
 #### 4. What you found difficult
