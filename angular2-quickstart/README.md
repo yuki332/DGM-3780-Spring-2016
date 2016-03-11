@@ -7,6 +7,8 @@
   4. create array and shows datas in the array by using `ngFor`
   5. hide selected template by using `ngIf`
   6. style template with css.
+  7. create another reusable components
+  8. 
 
 #### 3. What you learned
 #### 4. What you found difficult
