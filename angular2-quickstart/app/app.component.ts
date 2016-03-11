@@ -64,6 +64,7 @@ import {HeroDetailComponent} from './hero-detail.component';
             border-radius: 4px 0 0 4px;
         }
     `],
+    // tell angular that HeroDetailComponent is used
     directives: [HeroDetailComponent]
 })
 

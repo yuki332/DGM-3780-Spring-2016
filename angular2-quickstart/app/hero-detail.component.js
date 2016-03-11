@@ -25,6 +25,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'my-hero-detail',
                         template: "\n        <div *ngIf=\"hero\">\n            <h2>{{hero.name}} details!</h2>\n            <div><label>id: </label>{{hero.id}}</div>\n            <div>\n              <label>name: </label>\n              <input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n            </div>\n        </div>\n    ",
+                        //declare that hero is an input.
                         inputs: ['hero']
                     }), 
                     __metadata('design:paramtypes', [])
@@ -35,27 +36,4 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         }
     }
 });
-/*
-import {Component} from 'angular2/core';
-import {Hero} from './hero';
-@Component({
-  selector: 'my-hero-detail',
-  template: `
-    <div *ngIf="hero">
-      <h2>{{hero.name}} details!</h2>
-      <div><label>id: </label>{{hero.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="hero.name" placeholder="name"/>
-      </div>
-    </div>
-  `,
-  inputs: ['hero']
-})
-export class HeroDetailComponent {
-  hero: Hero;
-}
-
-
-*/
 //# sourceMappingURL=hero-detail.component.js.map
