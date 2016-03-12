@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/router', './hero.service'], function
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1, hero_service_1;
-    var HeroDetailComponent;
+    var DashboardComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -24,30 +24,33 @@ System.register(['angular2/core', 'angular2/router', './hero.service'], function
                 hero_service_1 = hero_service_1_1;
             }],
         execute: function() {
-            HeroDetailComponent = (function () {
-                function HeroDetailComponent(_heroService, _routeParams) {
+            DashboardComponent = (function () {
+                function DashboardComponent(_router, _heroService) {
+                    this._router = _router;
                     this._heroService = _heroService;
-                    this._routeParams = _routeParams;
+                    this.heroes = [];
                 }
-                HeroDetailComponent.prototype.ngOnInit = function () {
+                DashboardComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    var id = +this._routeParams.get('id');
-                    this._heroService.getHero(id).then(function (hero) { return _this.hero = hero; });
+                    this._heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
                 };
-                HeroDetailComponent.prototype.goBack = function () {
-                    window.history.back();
+                DashboardComponent.prototype.gotoDetail = function (hero) {
+                    var link = ['HeroDetail', { id: hero.id }];
+                    this._router.navigate(link);
                 };
-                HeroDetailComponent = __decorate([
+                DashboardComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-hero-detail',
-                        templateUrl: 'app/hero-detail.component.html',
+                        selector: 'my-dashboard',
+                        templateUrl: 'app/dashboard.component.html',
+                        styleUrls: ['app/dashboard.component.css'],
+                        template: "\n  <h3>Top Heroes</h3>\n  <div class=\"grid grid-pad\">\n      <div *ngFor=\"#hero of heroes\" (click)=\"gotoDetail(hero)\" class=\"col-1-4\" >\n          <div class=\"module hero\">\n              <h4>{{hero.name}}</h4>\n          </div>\n      </div>\n  </div>\n  "
                     }), 
-                    __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.RouteParams])
-                ], HeroDetailComponent);
-                return HeroDetailComponent;
+                    __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
+                ], DashboardComponent);
+                return DashboardComponent;
             }());
-            exports_1("HeroDetailComponent", HeroDetailComponent);
+            exports_1("DashboardComponent", DashboardComponent);
         }
     }
 });
-//# sourceMappingURL=hero-detail.component.js.map
+//# sourceMappingURL=dashboard.component.js.map

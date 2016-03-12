@@ -8,7 +8,11 @@
   5. hide selected template by using `ngIf`
   6. style template with css.
   7. create another reusable components
-  8. 
+  8. create mock service and data
+  9. add router
+  10. separate template to html file
+  11. create separate css file
+  12. put links to ts files
 
 #### 3. What you learned
 #### 4. What you found difficult
