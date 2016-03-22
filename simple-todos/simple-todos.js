@@ -1,16 +1,31 @@
 Tasks = new Mongo.Collection("tasks");
 
 if (Meteor.isClient) {
-  Template.body.helpers({
-    tasks: function() {
-        return Tasks.find({});
-    }
+    Template.body.helpers({
+        tasks: function() {
+            return Tasks.find({}, {sort: {createdAt: -1}});
+        }
     // tasks: [
     //   { text: "this is task 1" },
     //   { text: "this is task 2" },
     //   { text: "this is task 3" },
     // ]
-  });
+    });
+
+    Template.body.events({
+        "submit .new-task": function (event){
+            event.preventDefault();
+
+            var text = event.target.text.value;
+
+            Tasks.insert({
+                text: text,
+                createdAt: new Date()
+            });
+
+            event.target.text.value = "";
+        }
+    });
 }
 
 // if (Meteor.isClient) {
