@@ -1,4 +1,3 @@
-// App component - represents the whole app
 App = React.createClass({
     mixins: [ReactMeteorData],
     getInitialState() {
@@ -28,6 +27,9 @@ App = React.createClass({
     handleSubmit(event) {
         event.preventDefault();
         var text = React.findDOMNode(this.refs.textInput).value.trim();
+
+        Meteor.call("addTask", text);
+
         Tasks.insert({
             text: text,
             createdAt: new Date(),
@@ -44,30 +46,30 @@ App = React.createClass({
         });
     },
 
-  render() {
-    return (
-      <div className="container">
-        <header>
-            <h1>Todo List ({this.data.incompleteCount})</h1>
+    render() {
+        return (
+            <div className="container">
+                <header>
+                    <h1>Todo List ({this.data.incompleteCount})</h1>
 
-            <label className="hide-completed">
-                <input type="checkbox" readOnly={true} checked={this.state.hideCompleted} onClick={this.toggleHideCompleted} />
-                Hide Completed Tasks
-            </label>
+                    <label className="hide-completed">
+                        <input type="checkbox" readOnly={true} checked={this.state.hideCompleted} onClick={this.toggleHideCompleted} />
+                        Hide Completed Tasks
+                    </label>
 
-            <AccountsUIWrapper />
+                    <AccountsUIWrapper />
 
-            { this.data.currentUser ?
-                <form className="new-task" onSubmit={this.handleSubmit} >
-                    <input type="text" ref="textInput" placeholder="Type to add new tasks" />
-                </form> : ''
-            }
-        </header>
+                    { this.data.currentUser ?
+                        <form className="new-task" onSubmit={this.handleSubmit} >
+                            <input type="text" ref="textInput" placeholder="Type to add new tasks" />
+                        </form> : ''
+                    }
+                </header>
 
-        <ul>
-          {this.renderTasks()}
-        </ul>
-      </div>
-    );
-  }
+                <ul>
+                    {this.renderTasks()}
+                </ul>
+            </div>
+        );
+    }
 });
