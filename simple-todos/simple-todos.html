@@ -1,14 +1,27 @@
 <head>
-  <title>simple-todos</title>
+  <title>Todo List</title>
 </head>
 
 <body>
-  <p>meteor</p>
-
-  {{> hello}}
+    <div class="containter">
+        <header>
+          <h1>To do List</h1>
+        </header>
+        <ul>
+          {{#each tasks}}
+              {{> task}}
+          {{/each}}
+        </ul>
+    </div>
+  <!-- <p>meteor</p> -->
+  <!-- {{> hello}} -->
 </body>
 
-<template name="hello">
+<template name="task">
+    <li>{{text}}</li>
+</template>
+
+<!-- <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
-</template>
+</template> -->
