@@ -71,3 +71,8 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
+
+# angular and typings
+typings
+app/*.js
+app/*.js.map
